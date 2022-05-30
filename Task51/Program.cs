@@ -18,19 +18,16 @@ void FillArray(int[,] matr)
     }
 }
 
+
+
 int GetDiagSum(int[,] matr)
 {
     int count = 0;
     for (int i = 0; i < matr.GetLength(0); i++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
-        {
-            if (i == j)
-            {
-                count = count + matr[i,j];
-            }
-        }
+        count = count + matr[i, i];
     }
+
     return count;
 }
 
