@@ -6,36 +6,38 @@ m = 3, n = 4.
 8 7,8 -7,1 9
 */
 
-int[,] getRandomArray(int rowNumber, int colNumber, int deviation)
+double[,] getRandomArray(int rowNumber, int colNumber, int deviation)
 {
-    int[,] result = new int[rowNumber, colNumber];
-    for (var i = 0; i < rowNumber; i++)
+    double[,] result = new double[rowNumber, colNumber];
+    for (int i = 0; i < rowNumber; i++)
     {
-        for (var j = 0; j < colNumber; j++)
+        for (int j = 0; j < colNumber; j++)
         {
-            result[i, j] = new Random().Next(-deviation, deviation + 1);
+            result[i, j] = new Random().NextDouble() * 20 - 10;
         }
     }
     return result;
 }
-void print2DArray(int[,] arrayToPrint)
+void print2DArray(double[,] arrayToPrint)
 {
     Console.Write($"[ ]\t");
-    for (var i = 0; i < arrayToPrint.GetLength(1); i++)
+    for (int i = 0; i < arrayToPrint.GetLength(1); i++)
     {
         Console.Write($"[{i}]\t");
     }
     Console.WriteLine();
-    for (var i = 0; i < arrayToPrint.GetLength(0); i++)
+    for (int i = 0; i < arrayToPrint.GetLength(0); i++)
     {
         Console.Write($"[" + i + "]\t");
-        for (var j = 0; j < arrayToPrint.GetLength(1); j++)
+        for (int j = 0; j < arrayToPrint.GetLength(1); j++)
         {
+          {
             Console.Write(arrayToPrint[i, j] + "\t");
+        }
         }
         Console.WriteLine();
     }
 }
 
-int[,] randomArray = getRandomArray(10, 5, 10);
+double[,] randomArray = getRandomArray(3, 4, 1);
 print2DArray(randomArray);
