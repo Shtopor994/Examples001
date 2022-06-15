@@ -9,36 +9,29 @@
 5 -> 9
 */
 
-double[,] getRandomArray(int rowNumber, int colNumber, int deviation)
+Console.Write("Введите строку:");
+int strg = Convert.ToInt32(Console.ReadLine()) - 1;
+Console.Write("Введите столбец:");
+int clmn = Convert.ToInt32(Console.ReadLine()) - 1;
+int n = 3;
+int m = 4; 
+Random random = new Random();
+int[,] array = new int[n, m];
+Console.WriteLine("Исходный массив:");
+for (int i = 0; i < array.GetLength(0); i++)
 {
-    double[,] result = new double[rowNumber, colNumber];
-    for (int i = 0; i < rowNumber; i++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        for (int j = 0; j < colNumber; j++)
-        {
-            result[i, j] = new Random().NextDouble() * 20 - 10;
-        }
-    }
-    return result;
-}
-void print2DArray(double[,] arrayToPrint)
-{
-    Console.Write($"[ ]\t");
-    for (int i = 0; i < arrayToPrint.GetLength(1); i++)
-    {
-        Console.Write($"[{i}]\t");
+        array[i, j] = random.Next(10, 99);
+        Console.Write("{0} ", array[i, j]);
     }
     Console.WriteLine();
-    for (int i = 0; i < arrayToPrint.GetLength(0); i++)
-    {
-        Console.Write($"[" + i + "]\t");
-        for (int j = 0; j < arrayToPrint.GetLength(1); j++)
-        {
-             Console.Write(arrayToPrint[i, j] + "\t");
-        }
-        Console.WriteLine();
-    }
 }
-
-double[,] randomArray = getRandomArray(3, 4, 1);
-print2DArray(randomArray);
+if (strg < 0 | strg > array.GetLength(0) - 1 | clmn < 0 | clmn > array.GetLength(1) - 1)
+{
+    Console.WriteLine("Элемент не существует");
+}
+else
+{
+    Console.WriteLine("Значение элемента массива = {0}", array[strg, clmn]);
+}
