@@ -63,5 +63,3 @@ void SortArrayLines(int[,] array)
     }
   }
 }
-
-
